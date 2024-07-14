@@ -15,7 +15,7 @@ image_binary = stream.getvalue()
 
 
 response = rekognition.search_faces_by_image(
-        CollectionId='faceimage_collectionId',    // here you write collection ID , that you created .
+        CollectionId='faceimage_collectionId',    # here you write collection ID , that you created .
         Image={'Bytes':image_binary}                                       
         )
 
@@ -24,7 +24,7 @@ for match in response['FaceMatches']:
     print (match['Face']['FaceId'],match['Face']['Confidence'])
         
     face = dynamodb.get_item(
-        TableName='image_table',  // you have to write here DynamoDB table name 
+        TableName='image_table',     #  you have to write here DynamoDB table name 
         Key={'RekognitionId': {'S': match['Face']['FaceId']}}
         )
     
