@@ -13,7 +13,7 @@ Before you begin, ensure you have the following:
 1. **AWS Account**: You need an AWS account to create and manage AWS services.
 2. **AWS CLI**: Install and configure the AWS CLI.
     ```sh
-    pip install awscli
+    pip install aws-shell
     aws configure
     ```
 3. **Boto3**: The AWS SDK for Python to interact with AWS services.
