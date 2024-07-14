@@ -1,40 +1,59 @@
-# Face_Recognition_using_AWS_Services
+
+
+---
 
 # Face Recognition Using AWS Services
+
 This project demonstrates how to create a face recognition system using AWS services such as Rekognition, S3, and DynamoDB. The system indexes faces, stores metadata, and recognizes faces in images.
 
-# Prerequisites
+## Prerequisites
 
-# AWS Account: You need an AWS account to create and manage AWS services.
+Before you begin, ensure you have the following:
 
-#AWS CLI: Install and configure the AWS CLI.
+1. **AWS Account**: You need an AWS account to create and manage AWS services.
+2. **AWS CLI**: Install and configure the AWS CLI.
+    ```sh
+    pip install awscli
+    aws configure
+    ```
+3. **Boto3**: The AWS SDK for Python to interact with AWS services.
+    ```sh
+    pip install boto3
+    ```
 
-sh
+## AWS Setup
 
-pip install awscli
-aws configure
+Follow these steps to set up the required AWS services:
 
-Boto3: The AWS SDK for Python to interact with AWS services.
+### 1. Create Rekognition Collection
 
-sh
-pip install boto3
+Run the following command to create a Rekognition collection:
 
-AWS Setup
-Create Rekognition Collection
-
-sh
+```sh
 aws rekognition create-collection --collection-id face_recognition_collection --region us-east-1
+```
 
-Create DynamoDB Table
+### 2. Create DynamoDB Table
 
-sh
+Run the following command to create a DynamoDB table:
+
+```sh
 aws dynamodb create-table --table-name face_recognition \
 --attribute-definitions AttributeName=RekognitionId,AttributeType=S \
 --key-schema AttributeName=RekognitionId,KeyType=HASH \
 --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
 --region us-east-1
+```
 
-Create S3 Bucket
+### 3. Create S3 Bucket
 
-sh
-aws s3 mb s3://bucket-name --region us-east-1
+Run the following command to create an S3 bucket:
+
+```sh
+aws s3 mb s3://your-bucket-name --region us-east-1
+```
+
+Replace `your-bucket-name` with your desired S3 bucket name.
+
+---
+
